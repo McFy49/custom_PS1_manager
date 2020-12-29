@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for i in $*
+do
+	if [ $i == "stock" ]; then
+		rm ~/.zshrc 
+		touch ~/.zshrc
+	elif [ $i == "custom" ]; then
+		export custom=' export PS1="%F{111}%B%T%f %F{245}%~@%M %#%b%f %F{red}>%f%F{yellow}>%f%F{green}>%f "'
+		rm ~/.zshrc
+		echo $custom > ~/.zshrc
+	else
+		echo "choose either stock or custom"
+	fi
+done
+
